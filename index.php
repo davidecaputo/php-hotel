@@ -52,16 +52,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <div class="d-flex p-5">
-        <?php foreach ($hotels as $key => $value) { ?>
-            <ul>
-                <li><?php echo '<span class="d-block">Nome:</span>' .' '. $hotels[$key]['name'] ?></li>
-                <li><?php echo '<span class="d-block">Descrizione:</span>' .' '. $hotels[$key]['description'] ?></li>
-                <li><?php echo '<span class="d-block">Parcheggio:</span>' .' '.     ($hotels[$key]['parking']? 'Sì' : 'No') ?></li>
-                <li><?php echo '<span class="d-block">Voto:</span>' .' '. $hotels[$key]['vote'] ?></li>
-                <li><?php echo '<span class="d-block">Distanza dal centro:</span>' .' '. $hotels[$key]['distance_to_center'] .' '. '<span>Km</span>' ?></li>
-            </ul>
-        <?php } ?>
+    <div class="d-flex flex-column align-items-center p-5">
+        <h1 class="pb-5">Hotel</h1>
+        <table class="table table-hover w-50">
+            <thead>
+                <th>Nome</th>
+                <th>Descrizione</th>
+                <th>Parcheggio</th>
+                <th>Voto</th>
+                <th>Distanza dal centro</th>
+            </thead>
+            <tbody>
+                <?php foreach ($hotels as $key => $value) { ?>
+                    <tr>
+                        <td><?php echo $hotels[$key]['name'] ?></td>
+                        <td><?php echo $hotels[$key]['description'] ?></td>
+                        <td><?php echo ($hotels[$key]['parking']? 'Sì' : 'No') ?></td>
+                        <td><?php echo $hotels[$key]['vote'] ?></td>
+                        <td><?php echo $hotels[$key]['distance_to_center'] .' '. '<span>Km</span>' ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
